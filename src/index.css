@@ -13,8 +13,10 @@ body {
 :root {
   --primary-color: #0d1b2a;
   --secondary-color: #415a77;
-  --text-color-light: #b3dee2;
   --hover-color: #14213d;
+  --text-color-light: #b3dee2;
+  --text-color-danger: #e63946;
+  --text-color-success: #38b000;
   --font-size: 1rem;
 }
 
@@ -22,9 +24,8 @@ body {
   position: relative;
   padding: 1rem;
   background-color: var(--primary-color);
-  color: var(--text-color-light);
+  color: var(--text-color-light) !important;
   overflow: auto;
-  font-size: var(--font-size);
 }
 
 .control-panel {

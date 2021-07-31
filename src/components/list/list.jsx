@@ -1,13 +1,10 @@
+import { ControlPanel } from '../control-panel/control-panel';
 import './list.css';
 
 export const List = () => {
   return (
     <div className='block list'>
-      <div className='control-panel'>
-        <button className='control'>&#x25C1;</button>
-        <span>Cases</span>
-        <button className='control'>&#x25B7;</button>
-      </div>
+      <ControlPanel />
       <ul>
         {Array(100)
           .fill(0)

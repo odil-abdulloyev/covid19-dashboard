@@ -12,6 +12,7 @@
 .table-container {
   background-color: blue;
   min-height: 60vh;
+  padding: 0;
 }
 
 .chart-container {

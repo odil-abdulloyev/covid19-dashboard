@@ -1,0 +1,22 @@
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.table tr:hover {
+  background-color: var(--hover-color);
+}
+
+.table td {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color);
+}
+
+.deaths {
+  color: var(--text-color-danger);
+}
+
+.recovered {
+  color: var(--text-color-success);
+}
