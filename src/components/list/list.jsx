@@ -12,7 +12,7 @@ export const List = () => {
             <li className='list-item' key={i}>
               <div className='country'>
                 <img
-                  src='https://restcountries.eu/data/afg.svg'
+                  src='https://www.countryflags.io/AF/shiny/64.png'
                   alt='flag'
                   className='country-flag'
                 />
