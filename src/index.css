@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --primary-color: #0d1b2a;
+  --secondary-color: #415a77;
+  --text-color-light: #b3dee2;
+  --hover-color: #14213d;
+  --font-size: 1rem;
+}
+
+.block {
+  position: relative;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  overflow: auto;
+  font-size: var(--font-size);
+}
+
+.control-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+}
+
+.control {
+  background: none;
+  border: none;
+  color: var(--text-color-light);
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+
+.control:hover {
+  opacity: 0.6;
+}
+
+.control:active {
+  transform: translate(1px, 1px);
+  color: #ff6347;
+}
