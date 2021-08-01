@@ -1,4 +1,7 @@
-import { Bar } from 'react-chartjs-2';
+import { Bar, Chart as ChartJS } from 'react-chartjs-2';
+
+ChartJS.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color-light');
+ChartJS.defaults.borderColor = '#b3dee210';
 
 export const Chart = () => {
   return (

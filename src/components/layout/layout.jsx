@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
+import { Header } from '../header/header';
 import './layout.css';
 
 export const Layout = ({
@@ -9,7 +10,9 @@ export const Layout = ({
   chartContent = null
 }) => {
   return (
-    <Row>
+    <>
+      <Header />
+      <Row>
       <Col
         xxl={3}
         xl={3}
@@ -50,5 +53,6 @@ export const Layout = ({
         </Row>
       </Col>
     </Row>
+    </>
   );
 };
