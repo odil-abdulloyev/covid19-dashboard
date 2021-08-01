@@ -22,11 +22,11 @@ body {
 }
 
 .block {
-  position: relative;
+  position: relative !important;
   padding: 1rem;
   background-color: var(--primary-color);
   color: var(--text-color-light) !important;
-  overflow: auto;
+  overflow: auto !important;
   margin: 0 !important;
 }
 

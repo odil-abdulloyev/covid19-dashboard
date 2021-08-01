@@ -27,7 +27,8 @@
 }
 
 .country-flag {
-  height: 1.8rem;
+  width: 1.8rem;
+  height: 1.2rem;
 }
 
 .list-item:not(.list-item:last-child) {

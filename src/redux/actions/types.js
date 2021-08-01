@@ -1,0 +1,3 @@
+export const SET_COVID_DATA = 'SET_COVID_DATA';
+export const SET_CURRENT_INDEX = 'SET_CURRENT_INDEX';
+export const SET_CURRENT_UNIT = 'SET_CURRENT_UNIT';

@@ -1,26 +1,27 @@
+import { useSelector } from 'react-redux';
 import { ControlPanel } from '../control-panel/control-panel';
 import './list.css';
 
 export const List = () => {
+  const covidData = useSelector(state => state.covidData);
+  const currentIndex = useSelector(state => state.currentIndex);
   return (
     <div className='block list'>
-      <ControlPanel />
+      <ControlPanel target='index' values={['cases', 'deaths', 'recovered']} />
       <ul>
-        {Array(100)
-          .fill(0)
-          .map((_, i) => (
-            <li className='list-item' key={i}>
+        {covidData.map(({country, countryInfo, ...data}) => (
+          <li className='list-item' key={country + countryInfo._id}>
               <div className='country'>
                 <img
-                  src='https://www.countryflags.io/AF/shiny/64.png'
-                  alt='flag'
+                  src={countryInfo.flag}
+                  alt={countryInfo.iso3}
                   className='country-flag'
                 />
-                <span className='country-name'>Afghanistan</span>
+                <span className='country-name'>{country}</span>
               </div>
-              <div className='amount'>27657145</div>
+              <div className='amount'>{data[currentIndex]}</div>
             </li>
-          ))}
+        ))}
       </ul>
     </div>
   );

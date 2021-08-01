@@ -4,7 +4,7 @@ import { ControlPanel } from '../control-panel/control-panel';
 export const Table = () => {
   return (
     <div className='block table'>
-      <ControlPanel />
+      <ControlPanel target='index' values={['cases', 'deaths', 'recovered']} />
       <table>
         <tbody>
           <tr>
@@ -21,7 +21,7 @@ export const Table = () => {
           </tr>
         </tbody>
       </table>
-      <ControlPanel />
+      <ControlPanel target='unit' values={['absolute', 'per 100k population']} />
     </div>
   );
 };
