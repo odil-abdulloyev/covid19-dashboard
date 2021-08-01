@@ -26,6 +26,7 @@ body {
   background-color: var(--primary-color);
   color: var(--text-color-light) !important;
   overflow: auto;
+  margin: 0 !important;
 }
 
 .control-panel {

@@ -1,21 +1,28 @@
 .list-container {
-  background-color: red;
   height: 100vh;
   padding: 0;
 }
 
 .map-container {
-  background-color: green;
   padding: 0;
 }
 
 .table-container {
-  background-color: blue;
-  min-height: 60vh;
   padding: 0;
 }
 
 .chart-container {
-  background-color: yellow;
-  min-height: 40vh;
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-xxl-4,
+.col-xl-4,
+.col-l-4,
+.col-md-4,
+.col-sm-7 {
+  padding: 0;
 }
