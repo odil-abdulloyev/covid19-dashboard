@@ -16,7 +16,8 @@
   cursor: pointer;
 }
 
-.list-item:hover {
+.list-item:hover,
+.list-item.active {
   background-color: var(--hover-color);
 }
 
@@ -37,4 +38,12 @@
 
 .list-title {
   text-align: center;
+}
+
+.amount.deaths {
+  color: var(--text-color-danger);
+}
+
+.amount.recovered {
+  color: var(--text-color-success);
 }
