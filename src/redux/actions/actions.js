@@ -1,4 +1,10 @@
-import { SET_COVID_DATA, SET_CURRENT_INDEX, SET_CURRENT_UNIT } from './types';
+import {
+  SET_COVID_DATA,
+  SET_CURRENT_COUNTRY,
+  SET_CURRENT_INDEX,
+  SET_CURRENT_PERIOD,
+  SET_CURRENT_UNIT
+} from './types';
 
 export const setCovidData = (data) => ({
   type: SET_COVID_DATA,
@@ -13,4 +19,14 @@ export const setCurrentIndex = (index) => ({
 export const setCurrentUnit = (unit) => ({
   type: SET_CURRENT_UNIT,
   payload: unit
+});
+
+export const setCurrentCountry = (country) => ({
+  type: SET_CURRENT_COUNTRY,
+  payload: country
+});
+
+export const setCurrentPeriod = (period) => ({
+  type: SET_CURRENT_PERIOD,
+  payload: period
 });

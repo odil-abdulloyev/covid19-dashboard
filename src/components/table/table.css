@@ -8,9 +8,14 @@
   background-color: var(--hover-color);
 }
 
-.table td {
+.table td,
+th {
   padding: 0.5rem;
   border: 1px solid var(--secondary-color);
+}
+
+.table th {
+  text-align: center;
 }
 
 .deaths {

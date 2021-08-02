@@ -1,13 +1,18 @@
+import { config } from '../../config';
 import {
   SET_COVID_DATA,
+  SET_CURRENT_COUNTRY,
   SET_CURRENT_INDEX,
+  SET_CURRENT_PERIOD,
   SET_CURRENT_UNIT
 } from '../actions/types';
 
 const initialState = {
   covidData: [],
-  currentIndex: 'cases',
-  currentUnit: 'absolute'
+  currentIndex: config.index.cases,
+  currentUnit: config.unit.absolute,
+  currentPeriod: config.period.total,
+  currentCountry: null
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -18,6 +23,10 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, currentIndex: action.payload };
     case SET_CURRENT_UNIT:
       return { ...state, currentUnit: action.payload };
+    case SET_CURRENT_COUNTRY:
+      return { ...state, currentCountry: action.payload };
+    case SET_CURRENT_PERIOD:
+      return { ...state, currentPeriod: action.payload };
     default:
       return state;
   }

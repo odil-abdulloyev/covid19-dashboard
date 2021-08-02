@@ -7,14 +7,15 @@ import { Table } from '../table/table';
 import { Map } from '../map/map';
 import { Chart } from '../chart/chart';
 import { setCovidData } from '../../redux/actions/actions';
+import { config } from '../../config';
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('https://corona.lmao.ninja/v2/countries');
+      const response = await axios.get(config.apiUrl);
       return await response.data;
-    }
+    };
     fetchData().then((data) => dispatch(setCovidData(data)));
   }, [dispatch]);
   return (
@@ -25,4 +26,4 @@ export const App = () => {
       chartContent={<Chart />}
     />
   );
-}
+};
