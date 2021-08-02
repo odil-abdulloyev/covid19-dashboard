@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { config } from '../../config';
 import {
   setCurrentIndex,
   setCurrentPeriod,
@@ -13,11 +14,11 @@ export const ControlPanel = ({ target, values }) => {
 
   useEffect(() => {
     const action =
-      target === 'index'
+      target === config.target.index
         ? setCurrentIndex
-        : target === 'unit'
+        : target === config.target.unit
         ? setCurrentUnit
-        : target === 'period'
+        : target === config.target.period
         ? setCurrentPeriod
         : null;
     if (!action) {

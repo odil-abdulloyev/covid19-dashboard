@@ -9,20 +9,20 @@ import './list.css';
 export const List = () => {
   const covidData = useSelector((state) => state.covidData);
   const index = useSelector((state) => state.currentIndex);
-  const unit = useSelector(state => state.currentUnit);
-  const period = useSelector(state => state.currentPeriod);
+  const unit = useSelector((state) => state.currentUnit);
+  const period = useSelector((state) => state.currentPeriod);
   const dispatch = useDispatch();
   const [active, setActive] = useState(null);
 
   const handleItemClick = (country) => {
-    dispatch(setCurrentCountry(country)); 
+    dispatch(setCurrentCountry(country));
     setActive(country);
-  }
+  };
 
   return (
     <div className='block list'>
       <ControlPanel
-        target='index'
+        target={config.target.index}
         values={[
           config.index.cases,
           config.index.deaths,
@@ -31,7 +31,11 @@ export const List = () => {
       />
       <ul>
         {covidData.map(({ country, countryInfo, ...data }) => (
-          <li onClick={() => handleItemClick(country)} className={`list-item ${active === country && 'active'}`} key={country + countryInfo._id}>
+          <li
+            onClick={() => handleItemClick(country)}
+            className={`list-item ${active === country && 'active'}`}
+            key={country + countryInfo._id}
+          >
             <div className='country'>
               <img
                 src={countryInfo.flag}
@@ -40,7 +44,15 @@ export const List = () => {
               />
               <span className='country-name'>{country}</span>
             </div>
-            <div className={`amount ${index}`}>{getCovidStats({covidData, countryData: data, index, unit, period})}</div>
+            <div className={`amount ${index}`}>
+              {getCovidStats({
+                covidData,
+                countryData: data,
+                index,
+                unit,
+                period
+              })}
+            </div>
           </li>
         ))}
       </ul>
