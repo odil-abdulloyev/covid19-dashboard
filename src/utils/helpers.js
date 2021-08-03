@@ -28,3 +28,19 @@ export const getCovidStats = ({
   }
   return result;
 };
+
+export const calculateMarkerSize = ({
+  covidData,
+  index,
+  amount,
+  maxRate = 8,
+  ratesAmount = 15
+}) => {
+  const max = Math.max(...covidData.map((data) => data[index]));
+  for (let i = ratesAmount - 1; i > 0; --i) {
+    if (amount >= (i / ratesAmount) * max) {
+      return (maxRate * (i + 1)) / ratesAmount;
+    }
+  }
+  return (maxRate * 1) / ratesAmount;
+};

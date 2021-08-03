@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background-color: #081217;
+  background-color: var(--color-dark);
   color: var(--text-color-light);
 }
 
