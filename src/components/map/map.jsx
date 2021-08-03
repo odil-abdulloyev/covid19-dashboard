@@ -6,11 +6,25 @@ import { useEffect, useRef, useCallback } from 'react';
 import './map.css';
 import { config } from '../../config';
 import { calculateMarkerSize } from '../../utils/helpers';
+import { useState } from 'react';
 
 export const Map = () => {
   const covidData = useSelector((state) => state.covidData);
   const mapRef = useRef(null);
   const index = useSelector((state) => state.currentIndex);
+  const currentCountry = useSelector(state => state.currentCountry);
+  const [center, setCenter] = useState([0, 0]);
+  const [zoomIn, setZoomIn] = useState(false);
+
+  useEffect(() => {
+    const { lat = 0, long = 0 } = currentCountry?.countryInfo ?? {};
+    setCenter([lat, long]);
+    setZoomIn(true);
+
+    return () => {
+      setZoomIn(false);
+    }
+  }, [currentCountry]);
 
   const pointToLayer = useCallback(
     (feature, latlng) => {
@@ -87,8 +101,8 @@ export const Map = () => {
       <LeafletMap
         ref={mapRef}
         className='map-container'
-        center={[0, 0]}
-        zoom={3}
+        center={center}
+        zoom={zoomIn ? 8 : 3}
         scrollWheelZoom={true}
       >
         <TileLayer url={config.mapTileLayerUrl} />
