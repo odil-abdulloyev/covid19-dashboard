@@ -19,11 +19,7 @@ export const Map = () => {
   useEffect(() => {
     const { lat = 0, long = 0 } = currentCountry?.countryInfo ?? {};
     setCenter([lat, long]);
-    setZoomIn(true);
-
-    return () => {
-      setZoomIn(false);
-    };
+    setZoomIn(!!currentCountry);
   }, [currentCountry]);
 
   const pointToLayer = useCallback(
