@@ -6,10 +6,9 @@ import { getCovidStats } from '../../utils/helpers';
 
 export const Table = () => {
   const covidData = useSelector((state) => state.covidData);
-  const currentCountry = useSelector((state) => state.currentCountry);
+  const countryData = useSelector((state) => state.currentCountry);
   const period = useSelector((state) => state.currentPeriod);
   const unit = useSelector((state) => state.currentUnit);
-  const countryData = covidData.find((data) => data.country === currentCountry);
 
   return (
     <div className='block table'>
@@ -20,7 +19,7 @@ export const Table = () => {
       <table>
         <thead>
           <tr>
-            <th colSpan='2'>{currentCountry ?? 'Global'}</th>
+            <th colSpan='2'>{countryData?.country ?? 'Global'}</th>
           </tr>
         </thead>
         <tbody>

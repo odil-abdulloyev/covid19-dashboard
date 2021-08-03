@@ -14,9 +14,9 @@ export const List = () => {
   const dispatch = useDispatch();
   const [active, setActive] = useState(null);
 
-  const handleItemClick = (country) => {
-    dispatch(setCurrentCountry(country));
-    setActive(country);
+  const handleItemClick = (countryObj) => {
+    dispatch(setCurrentCountry(countryObj));
+    setActive(countryObj.country);
   };
 
   return (
@@ -30,24 +30,24 @@ export const List = () => {
         ]}
       />
       <ul>
-        {covidData.map(({ country, countryInfo, ...data }) => (
+        {covidData.map((countryObj) => (
           <li
-            onClick={() => handleItemClick(country)}
-            className={`list-item ${active === country && 'active'}`}
-            key={country + countryInfo._id}
+            onClick={() => handleItemClick(countryObj)}
+            className={`list-item ${active === countryObj.country && 'active'}`}
+            key={countryObj.country + countryObj.countryInfo._id}
           >
             <div className='country'>
               <img
-                src={countryInfo.flag}
-                alt={countryInfo.iso3}
+                src={countryObj.countryInfo.flag}
+                alt={countryObj.countryInfo.iso3}
                 className='country-flag'
               />
-              <span className='country-name'>{country}</span>
+              <span className='country-name'>{countryObj.country}</span>
             </div>
             <div className={`amount ${index}`}>
               {getCovidStats({
                 covidData,
-                countryData: data,
+                countryData: countryObj,
                 index,
                 unit,
                 period
