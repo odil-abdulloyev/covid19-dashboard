@@ -4,6 +4,7 @@ import { config } from '../../config';
 import { setCurrentCountry } from '../../redux/actions/actions';
 import { getCovidStats } from '../../utils/helpers';
 import { ControlPanel } from '../control-panel/control-panel';
+import { SearchBar } from '../search-bar/search-bar';
 import './list.css';
 
 export const List = () => {
@@ -13,11 +14,17 @@ export const List = () => {
   const period = useSelector((state) => state.currentPeriod);
   const dispatch = useDispatch();
   const [active, setActive] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleItemClick = (countryObj) => {
     dispatch(setCurrentCountry(countryObj));
     setActive(countryObj.country);
   };
+
+  const searchFilter =
+    (query) =>
+    ({ country }) =>
+      country.toLowerCase().search(query.toLowerCase()) > -1;
 
   return (
     <div className='block list'>
@@ -29,8 +36,9 @@ export const List = () => {
           config.index.recovered
         ]}
       />
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <ul>
-        {covidData.map((countryObj) => (
+        {covidData.filter(searchFilter(searchQuery)).map((countryObj) => (
           <li
             onClick={() => handleItemClick(countryObj)}
             className={`list-item ${active === countryObj.country && 'active'}`}
