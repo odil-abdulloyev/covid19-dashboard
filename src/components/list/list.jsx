@@ -28,15 +28,17 @@ export const List = () => {
 
   return (
     <div className='block list'>
-      <ControlPanel
-        target={config.target.index}
-        values={[
-          config.index.cases,
-          config.index.deaths,
-          config.index.recovered
-        ]}
-      />
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <div className='controls'>
+        <ControlPanel
+          target={config.target.index}
+          values={[
+            config.index.cases,
+            config.index.deaths,
+            config.index.recovered
+          ]}
+        />
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      </div>
       <ul>
         {covidData.filter(searchFilter(searchQuery)).map((countryObj) => (
           <li

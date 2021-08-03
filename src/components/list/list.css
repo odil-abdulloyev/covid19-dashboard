@@ -1,5 +1,14 @@
 .list {
   height: 100%;
+  padding-top: 0;
+}
+
+.list .controls {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+  padding-top: 1rem;
 }
 
 .list ul {
