@@ -12,7 +12,7 @@ export const Map = () => {
   const covidData = useSelector((state) => state.covidData);
   const mapRef = useRef(null);
   const index = useSelector((state) => state.currentIndex);
-  const currentCountry = useSelector(state => state.currentCountry);
+  const currentCountry = useSelector((state) => state.currentCountry);
   const [center, setCenter] = useState([0, 0]);
   const [zoomIn, setZoomIn] = useState(false);
 
@@ -23,7 +23,7 @@ export const Map = () => {
 
     return () => {
       setZoomIn(false);
-    }
+    };
   }, [currentCountry]);
 
   const pointToLayer = useCallback(

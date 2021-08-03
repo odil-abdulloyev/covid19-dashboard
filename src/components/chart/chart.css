@@ -1,0 +1,9 @@
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container {
+  min-height: 290px;
+}
