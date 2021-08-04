@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import './chart.css';
 import { getCovidStats } from '../../utils/helpers';
 import { config } from '../../config';
+import { useRef } from 'react';
+import { useFullscreen } from '../../utils/custom-hooks';
+import { FullscreenButton } from '../fullscreen-button/fullscreen-button';
 
 ChartJS.defaults.color = getComputedStyle(
   document.documentElement
@@ -12,9 +15,12 @@ ChartJS.defaults.borderColor = '#b3dee210';
 export const Chart = () => {
   const covidData = useSelector((state) => state.covidData);
   const currentCountry = useSelector((state) => state.currentCountry);
+  const chartBlockRef = useRef(null);
+  const fullscreenTarget = useFullscreen(chartBlockRef);
 
   return (
-    <div className='block chart'>
+    <div className='block chart' ref={chartBlockRef}>
+      <FullscreenButton target={fullscreenTarget} />
       <div className='chart-container'>
         <Doughnut
           data={{

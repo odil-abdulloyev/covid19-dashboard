@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { config } from '../../config';
 import { setCurrentCountry } from '../../redux/actions/actions';
+import { useFullscreen } from '../../utils/custom-hooks';
 import { getCovidStats } from '../../utils/helpers';
 import { ControlPanel } from '../control-panel/control-panel';
+import { FullscreenButton } from '../fullscreen-button/fullscreen-button';
 import { SearchBar } from '../search-bar/search-bar';
 import './list.css';
 
@@ -15,6 +17,8 @@ export const List = () => {
   const dispatch = useDispatch();
   const [active, setActive] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const listBlockRef = useRef(null);
+  const fullscreenTarget = useFullscreen(listBlockRef);
 
   const handleItemClick = (countryObj) => {
     dispatch(setCurrentCountry(countryObj));
@@ -27,7 +31,8 @@ export const List = () => {
       country.toLowerCase().search(query.toLowerCase()) > -1;
 
   return (
-    <div className='block list'>
+    <div className='block list' ref={listBlockRef}>
+      <FullscreenButton target={fullscreenTarget} />
       <div className='controls'>
         <ControlPanel
           target={config.target.index}

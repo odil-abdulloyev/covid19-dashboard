@@ -4,6 +4,11 @@
   margin: 1rem 0;
 }
 
+.table.fullscreen {
+  padding: 10rem;
+  font-size: 2rem;
+}
+
 .table tr:hover {
   background-color: var(--hover-color);
 }

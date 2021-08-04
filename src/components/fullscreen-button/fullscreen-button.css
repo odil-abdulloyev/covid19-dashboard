@@ -1,0 +1,24 @@
+.fullscreen-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark);
+  opacity: 0.5;
+  color: var(--text-color-light);
+  font-size: 0.8rem;
+  transition: transform 0.15s;
+  transform: scale(0.9);
+}
+
+.fullscreen-button:hover {
+  opacity: 1;
+  transform: scale(1);
+}

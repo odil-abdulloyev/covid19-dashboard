@@ -3,15 +3,21 @@ import './table.css';
 import { ControlPanel } from '../control-panel/control-panel';
 import { config } from '../../config';
 import { getCovidStats } from '../../utils/helpers';
+import { useRef } from 'react';
+import { useFullscreen } from '../../utils/custom-hooks';
+import { FullscreenButton } from '../fullscreen-button/fullscreen-button';
 
 export const Table = () => {
   const covidData = useSelector((state) => state.covidData);
   const countryData = useSelector((state) => state.currentCountry);
   const period = useSelector((state) => state.currentPeriod);
   const unit = useSelector((state) => state.currentUnit);
+  const tableBlockRef = useRef(null);
+  const fullscreenTarget = useFullscreen(tableBlockRef);
 
   return (
-    <div className='block table'>
+    <div className='block table' ref={tableBlockRef}>
+      <FullscreenButton target={fullscreenTarget} />
       <ControlPanel
         target={config.target.period}
         values={[config.period.total, config.period.today]}

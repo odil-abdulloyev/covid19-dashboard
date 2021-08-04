@@ -3,6 +3,10 @@
   padding-top: 0;
 }
 
+.list.fullscreen {
+  font-size: 2rem;
+}
+
 .list .controls {
   position: sticky;
   top: 0;
